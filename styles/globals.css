@@ -3,26 +3,100 @@
 @tailwind utilities;
 
 :root {
-  --background: 214 52% 97%;
-  --foreground: 223 36% 16%;
-  --primary: 204 78% 42%;
-  --muted: 210 26% 44%;
-  --card: 0 0% 100%;
-  --border: 210 24% 88%;
+  --background: 224 71% 4%;
+  --foreground: 213 31% 91%;
+  --primary: 266 100% 64%;
+  --primary-light: 266 100% 76%;
+  --accent: 174 72% 56%;
+  --muted: 215 20% 55%;
+  --card: 224 50% 8%;
+  --card-hover: 224 50% 11%;
+  --border: 215 28% 17%;
+  --glow: 266 100% 64%;
 }
 
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   @apply border-border;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   @apply bg-background text-foreground antialiased;
-  background-image:
-    radial-gradient(circle at 20% 10%, rgba(56, 189, 248, 0.12), transparent 35%),
-    radial-gradient(circle at 85% 20%, rgba(14, 165, 233, 0.1), transparent 32%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: hsl(var(--primary) / 0.2);
+  background: hsl(var(--primary) / 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(224 71% 4%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.6);
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, hsl(var(--primary-light)), hsl(var(--accent)));
+}
+
+.glow {
+  box-shadow: 0 0 40px -12px hsl(var(--glow) / 0.4);
+}
+
+.glow-sm {
+  box-shadow: 0 0 20px -8px hsl(var(--glow) / 0.3);
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -50px) scale(1.1); }
+  50% { transform: translate(-20px, 20px) scale(0.9); }
+  75% { transform: translate(20px, 40px) scale(1.05); }
+}
+
+.animate-blob {
+  animation: blob 20s ease-in-out infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s ease-in-out infinite;
 }

@@ -2,15 +2,15 @@ import type { Metadata } from 'next';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-  title: 'Soulvora | Emotional Stability. Measurable Advantage.',
+  title: 'Soulvora | You Deserve to Thrive, Not Just Survive',
   description:
-    'Soulvora helps leadership teams improve performance through emotional stability, proactive engagement, and measurable wellbeing outcomes.'
+    'Soulvora is your confidential companion for emotional wellness at work. Get real support, build resilience, and rediscover what it means to feel genuinely good.'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className="dark">
+      <body className="noise">{children}</body>
     </html>
   );
 }
